@@ -26,7 +26,7 @@ export default function App() {
     const waveSub = client.models.Waveform.observeQuery({ filter: { device_id: { eq: device } } }).subscribe({ next: ({items}) => { if(active) setWave(items[0] ?? null); }, error: fail });
     const load = async () => {
       try {
-        const result = await client.models.HeartRate.list({ device_id: device }, { sortDirection: 'DESC', limit: 120 });
+        const result = await client.models.HeartRate.list({ device_id: device, sortDirection: 'DESC', limit: 120 });
         if (result.errors?.length) throw new Error(JSON.stringify(result.errors));
         if (active) merge(result.data);
       } catch(e) { fail(e); }
