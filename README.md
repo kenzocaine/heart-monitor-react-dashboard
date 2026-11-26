@@ -210,6 +210,8 @@ Amazon Cognito handles user authentication, while group-based authorization rest
 
 ## Discord integration
 
+![Heart Monitor Dashboard](docs/discord.png)
+
 The system includes a dedicated notification service based on AWS Lambda and Discord Webhooks.
 
 The purpose of the integration is to allow users to receive threshold-based notifications without having to continuously monitor the web dashboard.
