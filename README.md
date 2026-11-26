@@ -255,6 +255,21 @@ The basic threshold-based implementation evaluates each incoming valid measureme
 
 The threshold is intended for demonstrating event-driven notifications and is not a clinically validated medical alarm threshold.
 
+## Amazon S3 for long-term storage and archiving
+
+Amazon S3 is not currently implemented in the project but could expand the capabilities of the solution. While DynamoDB is well suited for fast access to individual measurements and real-time visualization, S3 provides a cost-effective solution for long-term storage and archiving of larger datasets.
+
+Potential applications within the project include:
+
+- Archiving historical heart rate measurements in JSON or CSV format.
+- Storing complete waveform snapshots for further signal processing and analysis.
+- Archiving application and device logs for troubleshooting, diagnostics and security auditing.
+- Storing backups of historical measurement data.
+- Providing datasets for statistical analysis and machine learning.
+
+A combination of DynamoDB and S3 would allow the system to retain recent measurements in DynamoDB for fast dashboard access while archiving older data and logs in S3. This could reduce long-term storage costs and improve the scalability of the system.
+
+
 ## Scalability
 
 The system is based on a serverless AWS architecture, allowing the cloud infrastructure to accommodate increasing workloads without requiring manually administered servers.
@@ -268,6 +283,8 @@ The system is based on a serverless AWS architecture, allowing the cloud infrast
 - **AWS Amplify:** Provides managed hosting and deployment of the web application.
 - **Independent data streams:** BPM measurements and waveform snapshots can be processed separately.
 - **Configurable publishing intervals:** Firmware publishing intervals can be adjusted to balance network traffic, processing requirements and cloud costs.
+
+
 
 ### Estimated message volumes
 
